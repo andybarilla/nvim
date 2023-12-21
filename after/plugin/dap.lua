@@ -7,7 +7,6 @@ if not (dap_ok) then
 end
 
 require('dap').set_log_level('DEBUG') -- Helps when configuring DAP, see logs with :DapShowLog
-require('dap.ext.vscode').load_launchjs(nil, {})
 require("mason-nvim-dap").setup({
     ensure_installed = { "typescript", "go", "delve" },
     automatic_installation = true,
@@ -33,6 +32,35 @@ dap.adapters.go = {
   },
 }
 
+local js_based_languages = { "typescript", "javascript", "typescriptreact" }
+
+for _, language in ipairs(js_based_languages) do
+  require("dap").configurations[language] = {
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach",
+      processId = require 'dap.utils'.pick_process,
+      cwd = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-chrome",
+      request = "launch",
+      name = "Start Chrome with \"localhost\"",
+      url = "http://localhost:3000",
+      webRoot = "${workspaceFolder}",
+      userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
+    }
+  }
+end
+
 local dap, dapui =require("dap"),require("dapui")
 dap.listeners.after.event_initialized["dapui_config"]=function()
   dapui.open()
@@ -53,3 +81,7 @@ vim.keymap.set('n', '<F11>', require 'dap'.step_into)
 vim.keymap.set('n', '<F12>', require 'dap'.step_out)
 vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 
+require('dap-vscode-js').setup({
+    debugger_path = "(runtimedir)/site/pack/packr/opt/vscode-js-debug",
+    adapters = { 'chrome', 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extenionHost', 'node', 'chrome' },
+})

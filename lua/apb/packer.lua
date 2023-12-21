@@ -14,10 +14,10 @@ return require('packer').startup(function(use)
 	}
 
 	use ({
-		"ellisonleao/gruvbox.nvim",
+        "bluz71/vim-moonfly-colors",
 		config = function()
 			vim.o.background = "dark" -- or "light" for light mode
-			vim.cmd('colorscheme gruvbox')
+			vim.cmd('colorscheme moonfly')
 		end})
 
 		use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
@@ -34,6 +34,8 @@ return require('packer').startup(function(use)
         use('MunifTanjim/prettier.nvim')
         use('mfussenegger/nvim-dap')
         use('leoluz/nvim-dap-go')
+        use{'nvim-lualine/lualine.nvim', 
+            requires = {'nvim-tree/nvim-web-devicons', opt = true}}
         use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
 		use {

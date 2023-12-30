@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
         use{'nvim-lualine/lualine.nvim', 
             requires = {'nvim-tree/nvim-web-devicons', opt = true}}
         use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+        use{'ray-x/go.nvim'}
+        use{'ray-x/guihua.lua'}
+        use{'joerdav/templ.vim'}
 
 		use {
 			'VonHeikemen/lsp-zero.nvim',

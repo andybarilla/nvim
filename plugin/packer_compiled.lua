@@ -89,6 +89,16 @@ _G.packer_plugins = {
     path = "/Users/andy/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/andy/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/andy/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/andy/.local/share/nvim/site/pack/packer/start/harpoon",

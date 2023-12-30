@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fv", vim.cmd.Ex)
 vim.keymap.set("n", ",s", ":so ~/.config/nvim/init.lua<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -49,3 +49,6 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.goto_next)
+
+
+

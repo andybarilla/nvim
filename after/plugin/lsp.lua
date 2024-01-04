@@ -31,6 +31,9 @@ lspconfig.tsserver.setup {
     end,
 }
 
+lspconfig.gopls.setup {}
+lspconfig.templ.setup {}
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
@@ -68,3 +71,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end,
 })
+
+-- organize imports when event triggered
+local org_imports = function (wait_ms)
+    local params = vim.lsp.util.make_range_params()
+    params.context = {only = {"source.organizeImports"}}
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+    for _, res in pairs(result or {}) do
+      for _, r in pairs(res.result or {}) do
+        if r.edit then
+          vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
+        else
+          vim.lsp.buf.execute_command(r.command)
+        end
+      end
+    end
+end
+
+-- format the code before writting to file
+vim.api.nvim_create_autocmd("BufWritePre", {pattern = "*.go", callback = function() vim.lsp.buf.format() end})
+-- organize imports when saving file
+vim.api.nvim_create_autocmd("CompleteDone", {pattern = "*.go", callback = function() org_imports(1000) end})
+-- go to last location of Buffer
+vim.api.nvim_create_autocmd(
+    "BufReadPost",
+    { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+)

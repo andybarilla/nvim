@@ -36,4 +36,5 @@ require("lazy").setup({
     "joerdav/templ.vim",
     "neovim/nvim-lspconfig",
     "jose-elias-alvarez/null-ls.nvim",
+    "ray-x/go.nvim",
 })

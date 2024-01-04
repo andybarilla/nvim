@@ -27,14 +27,16 @@ require("lazy").setup({
     "nvim-treesitter/playground",
     "theprimeagen/harpoon",
     "github/copilot.vim",
-    "MunifTanjim/prettier.nvim",
     "nvim-tree/nvim-web-devicons",
+    "sbdchd/neoformat",
     {
         "nvim-lualine/lualine.nvim",
         opt = true
     },
     "joerdav/templ.vim",
     "neovim/nvim-lspconfig",
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     "ray-x/go.nvim",
 })
+
+vim.cmd "autocmd BufWritePre * Neoformat"

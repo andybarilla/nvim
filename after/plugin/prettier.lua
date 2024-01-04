@@ -1,4 +1,4 @@
-local prettier = require("prettier")
+--[[ local prettier = require("prettier")
 
 prettier.setup({
     bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
@@ -37,3 +37,4 @@ prettier.setup({
         vue_indent_script_and_style = false,
     },
 })
+]]--

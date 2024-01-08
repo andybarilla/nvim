@@ -34,15 +34,31 @@ require("lazy").setup({
         opt = true
     },
     "joerdav/templ.vim",
-    "neovim/nvim-lspconfig",
     "nvimtools/none-ls.nvim",
-    "ray-x/go.nvim",
     {
         "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
         opts = {
         }
-    }
+    },
+    "ray-x/go.nvim",
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williambowan/mason-lspconfig.nvim",
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/nvim-cmp',
+            'L3MON4D3/LuaSnip',
+'saadparwaiz1/cmp_luasnip',
+        }
+    },
+
 })
 
 vim.cmd "autocmd BufWritePre * Neoformat"

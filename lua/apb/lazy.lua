@@ -37,6 +37,12 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     "nvimtools/none-ls.nvim",
     "ray-x/go.nvim",
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+        }
+    }
 })
 
 vim.cmd "autocmd BufWritePre * Neoformat"

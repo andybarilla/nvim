@@ -43,6 +43,12 @@ require("lazy").setup({
         opts = {
         }
     },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "roobert/tailwindcss-colorizer-cmp.nvim",
+        },
+    },
     "ray-x/go.nvim",
     {
         "neovim/nvim-lspconfig",
@@ -58,7 +64,14 @@ require("lazy").setup({
             'saadparwaiz1/cmp_luasnip',
         }
     },
-
+    {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        config = function()
+            require("tailwindcss-colorizer-cmp").setup({
+                color_square_width = 2,
+            })
+        end
+    }
 })
 
 vim.cmd "autocmd BufWritePre * Neoformat"

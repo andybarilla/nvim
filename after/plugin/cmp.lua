@@ -23,7 +23,8 @@ cmp.setup({
         { name = 'luasnip' },
     }, {
         { name = 'buffer' },
-    })
+    }),
+    formatting = { format = require("tailwindcss-colorizer-cmp").formatter },
 })
 
 vim.diagnostic.config({
@@ -64,4 +65,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-

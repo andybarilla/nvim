@@ -30,5 +30,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	command = "setlocal shiftwidth=2 tabstop=2",
+})

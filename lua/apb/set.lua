@@ -36,3 +36,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
+
+vim.cmd('set guicursor=n-v-c:block-Cursor/iCursor-blinkon0,i-ci:ver25-Cursor/iCursor,r-cr:hor20-Cursor/iCursor')
+

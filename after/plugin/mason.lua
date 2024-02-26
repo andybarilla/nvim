@@ -1,5 +1,9 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 local lspconfig = require("lspconfig")
 
 require("mason").setup()

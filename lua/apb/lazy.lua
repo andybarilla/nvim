@@ -62,6 +62,7 @@ require("lazy").setup({
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
+            "ray-x/guihua.lua",
         },
     },
     {
@@ -102,6 +103,16 @@ require("lazy").setup({
             -- refer to the configuration section below
         },
     },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+        }
+    },
+    { "folke/neodev.nvim",
+        opts = {}
+    },
+    "theHamsta/nvim-dap-virtual-text",
     "ThePrimeagen/vim-be-good",
 })
 
